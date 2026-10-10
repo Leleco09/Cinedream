@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Player de Vídeo - CinePrivado (Compatível com Rave)</title>
+  <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="player-navbar">
+    <a href="index.html" class="back-link">
+      <span>←</span> Voltar ao Catálogo
+    </a>
+
+    <div class="header-right">
+      <button id="copyRaveBtnTop" class="back-link" style="background: rgba(108, 92, 231, 0.25); color: #c7d2fe; border: 1px solid rgba(108, 92, 231, 0.4); cursor: pointer;">
+        🚀 Copiar Link p/ Rave
+      </button>
+    </div>
+  </header>
+
+  <!-- Player Layout -->
+  <main class="player-layout">
+
+    <!-- Coluna Principal do Vídeo -->
+    <section class="player-main-col">
+      
+      <!-- Container 16:9 com Video HTML5 Nativo Direto -->
+      <div class="video-frame">
+        <video 
+          id="videoPlayer" 
+          class="video-element" 
+          controls 
+          playsinline 
+          webkit-playsinline
+          preload="metadata"
+        >
+          <source id="videoSource" src="" type="video/mp4">
+          Seu navegador não suporta reprodução de vídeo HTML5.
+        </video>
+      </div>
+
+      <!-- Informações do Vídeo -->
+      <div class="video-meta-card">
+        <div class="media-tag-row">
+          <span class="badge-demo">MODO DEMO</span>
+          <span id="playerTypeBadge" class="badge-type">FILME</span>
+        </div>
+
+        <h1 id="playerTitle" class="video-heading">Carregando...</h1>
+        <h2 id="playerSubtitle" class="episode-subheading" style="display: none;"></h2>
+
+        <p id="playerSynopsis" class="video-desc"></p>
+
+        <!-- Caixa de Apoio e Verificação de Compatibilidade com o Rave -->
+        <div class="rave-info-box">
+          <div class="rave-info-title">
+            <span>🚀 Compatibilidade com o Rave</span>
+          </div>
+          <p class="rave-info-text">
+            Esta página possui uma tag <code>&lt;video&gt;</code> HTML5 direta e sem bloqueios, no formato exigido pela webview do Rave.
+            Para assistir com amigos:
+            <br><strong>1.</strong> Copie a URL desta página abaixo ou no botão superior.
+            <br><strong>2.</strong> No app <strong>Rave</strong>, toque em <strong>+</strong>, escolha a opção <strong>Web</strong> e cole o link.
+          </p>
+
+          <div class="rave-link-display">
+            <span id="currentUrlDisplay" class="rave-url-text">https://...</span>
+            <button id="copyUrlBtn" class="back-link" style="padding: 0.35rem 0.65rem; font-size: 0.75rem; cursor: pointer;">
+              Copiar
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Barra Lateral de Episódios (Exibida para Séries) -->
+    <aside id="seriesSidebar" class="playlist-sidebar" style="display: none;">
+      <div class="playlist-header">
+        <h3 class="playlist-title">Episódios</h3>
+        <span id="episodeCountBadge" style="font-size: 0.75rem; color: var(--text-secondary);">0 eps</span>
+      </div>
+
+      <div id="playlistContainer" class="episodes-scroll-list">
+        <!-- Itens de episódios injetados pelo JS -->
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">Link copiado com sucesso!</div>
+
+  <script src="js/mock-data.js"></script>
+  <script src="js/player.js"></script>
+</body>
+</html>
